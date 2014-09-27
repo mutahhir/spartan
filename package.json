@@ -1,0 +1,16 @@
+{
+  "name": "spartan",
+  "version": "0.0.1",
+  "description": "A simple node.js server to be used for serving asper.me",
+  "main": "index.js",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "gulp": "^3.8.8"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mutahhir Ali Hayat",
+  "license": "MIT"
+}
