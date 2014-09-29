@@ -4,7 +4,9 @@
   "description": "A simple node.js server to be used for serving asper.me",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.9.5"
+    "dot": "^1.0.2",
+    "express": "^4.9.5",
+    "express-dot": "^0.1.0"
   },
   "devDependencies": {
     "gulp": "^3.8.8"
