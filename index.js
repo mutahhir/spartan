@@ -19,6 +19,6 @@ app.use('/static/css', express.static(path.join(__dirname, 'blog', 'styles', 'cs
 app.use('/static/img', express.static(path.join(__dirname, 'blog', 'img')));
 app.use('/static/fonts', express.static(path.join(__dirname, 'blog', 'fonts')));
 
-var server = app.listen(3000, function () {
+var server = app.listen(80, function () {
 	console.log('Listening on port %d', server.address().port);
 });
