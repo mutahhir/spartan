@@ -31,7 +31,7 @@ app.engine('handlebars', expressHandlebars({
 }));
 
 app.set('view engine', 'handlebars');
-app.set('views', './blog/views');
+app.set('views', path.join(__dirname, 'blog', 'views'));
 
 app.get('/', function (req, res) {
 	res.render('under-construction');
