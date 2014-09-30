@@ -25,8 +25,8 @@ MD.setOptions({
 });
 
 app.engine('handlebars', expressHandlebars({
-	layoutsDir: 'blog/views/layouts',
-	partialsDir: 'blog/views/partials',
+	layoutsDir: path.join(__dirname, 'blog', 'views', 'layouts'),
+	partialsDir: path.join(__dirname, 'blog', 'views', 'partials'),
 	defaultLayout: 'index'
 }));
 
