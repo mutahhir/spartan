@@ -2,7 +2,6 @@ var express = require('express'),
 	fs = require('fs'),
 	path = require('path'),
 	expressHandlebars = require('express-handlebars'),
-	Q = require('q'),
 	MD = require('marked'),
 	frontMatter = require('json-front-matter');
 
