@@ -1,3 +1,4 @@
 node_modules
 blog/views/posts
 .c9
+blog/data/*

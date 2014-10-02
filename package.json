@@ -4,12 +4,15 @@
   "description": "A simple node.js server to be used for serving asper.me",
   "main": "index.js",
   "dependencies": {
+    "async": "^0.9.0",
     "dot": "^1.0.2",
     "express": "^4.9.5",
     "express-dot": "^0.1.0",
     "express-handlebars": "^1.1.0",
     "json-front-matter": "^0.1.6",
+    "lodash": "^2.4.1",
     "marked": "^0.3.2",
+    "moment": "^2.8.3",
     "pygmentize-bundled": "^2.2.0",
     "q": "^1.0.1"
   },
