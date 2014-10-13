@@ -119,6 +119,6 @@ app.use('/static/fonts', express.static(path.join(__dirname, 'blog', 'fonts')));
 
 var isDevelopment = process.env.NODE_ENV !== 'production';
 
-var server = app.listen(isDevelopment? process.env.PORT : 80, process.env.IP, function () {
+var server = app.listen(isDevelopment? 3000 : 80, process.env.IP, function () {
 	console.log('Listening on port %d', server.address().port);
 });

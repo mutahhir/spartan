@@ -1,11 +1,13 @@
-var fs = require("fs"),
-    path = require("path"),
+var fs = require('fs'),
+    path = require('path'),
     _ = require('lodash'),
     moment = require('moment'),
     async = require('async'),
-    frontMatter = require('json-front-matter');
+    frontMatter = require('json-front-matter'),
+    fsx = require('node-fs');
     
 var postsPath = path.join(__dirname, 'blog', 'posts');
+
 
 fs.readdir(postsPath, function (err, filenames) {
     if (err) {
@@ -33,6 +35,7 @@ fs.readdir(postsPath, function (err, filenames) {
                 
                 return callback(null, {
                     name: fname,
+                    path: '/posts/' + path.join(nameparts[0], nameparts[1], nameparts[2], nameparts.slice(3).join('-').replace(/\.\w+$/, '')),
                     postName: postName,
                     postDate: postDate,
                     frontMatter: frontMatterParsed.attributes
@@ -43,14 +46,20 @@ fs.readdir(postsPath, function (err, filenames) {
            callback(new Error('The post (' + fname + ') does not conform to the required template'));
         }
     }, function done(err, results) {
-        var postsListFilePath = path.join(__dirname, 'blog', 'data', 'posts.json');
-        fs.writeFile(postsListFilePath, JSON.stringify(results, true, 4), 'utf8', function (err, result) {
+        var postsPathComponents = [__dirname, 'blog', 'data', 'posts.json'],
+            postsListFolderPath = path.join.apply(path, postsPathComponents.slice(0, -1)),
+            postsListFilePath = path.join.apply(path, postsPathComponents);
+
+        fsx.mkdir(postsListFolderPath, '754', true, function (err, res) {
             if (err) {
-                return console.error(err);
+                throw err;
             }
-            console.log('Done!');
+            fs.writeFile(postsListFilePath, JSON.stringify(results, true, 4), 'utf8', function (err, result) {
+                if (err) {
+                    return console.error(err);
+                }
+                console.log('Done!');
+            });
         });
     });
-
-    // open each file and read up their file front-matter
 })
