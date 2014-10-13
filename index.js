@@ -33,7 +33,16 @@ app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, 'blog', 'views'));
 
 app.get('/', function (req, res) {
-	res.render('under-construction');
+	var postsJsonPath = path.join(__dirname, 'blog', 'data', 'posts.json');
+	fs.readFile(postsJsonPath, function (err, data) {
+		if (err) {
+			return res.send(500);
+		}
+		
+		var posts = JSON.parse(data);
+		
+		res.render('home', {posts: posts});
+	});
 });
 
 app.get('/posts/:year/:month/:day/:postName', function (req, res) {
